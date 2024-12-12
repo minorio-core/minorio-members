@@ -1,6 +1,14 @@
 markdown: kramdown
+theme: minima
 
 collections:
   members:
     output: true
+    permalink: /:collection/:name
 
+defaults:
+  - scope:
+      path: ""
+      type: "members"
+    values:
+      layout: default

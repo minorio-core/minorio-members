@@ -1,3 +1,7 @@
+---
+layout: default
+title: Minorio Members
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -42,14 +46,22 @@ git push origin main
                 <li>Once your pull request is merged, you’ll officially be part of the Minorio community!</li>
             </ol>
         </section>
-	<section id="members-list">
-	    <h2>Our Community Members</h2>
-	    <ul>
-	        {% for member in site.members %}
-	        <li><a href="{{ member.url }}">{{ member.name }}</a></li>
-	        {% endfor %}
-	    </ul>
-	</section>
+
+    <section id="members-list">
+        <h2>Our Community Members</h2>
+        {% if site.members.size > 0 %}
+            <ul>
+            {% for member in site.members %}
+                <li>
+                    <strong>{{ member.name }}</strong>
+                    {% if member.bio %} - {{ member.bio }}{% endif %}
+                </li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <p>No members found. Be the first to join!</p>
+        {% endif %}
+    </section>
 
     </main>
     <footer>
