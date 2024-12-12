@@ -46,17 +46,17 @@ git push origin main
                 <li>Once your pull request is merged, you’ll officially be part of the Minorio community!</li>
             </ol>
         </section>
+
 	<section id="members-list">
 	    <h2>Our Community Members</h2>
-	    {% assign real_members = site.members | where_exp:"item", "item.path contains 'template.md' == false" %}
 	    
 	    <div class="community-stats">
-	        <p>Current community size: <strong>{{ real_members.size }}</strong> member{% if real_members.size != 1 %}s{% endif %}</p>
+	        <p>Current community size: <strong>{{ site.members.size }}</strong> member{% if site.members.size != 1 %}s{% endif %}</p>
 	    </div>
 	
-	    {% if real_members.size > 0 %}
+	    {% if site.members.size > 0 %}
 	        <ul>
-	        {% for member in real_members %}
+	        {% for member in site.members %}
 	            <li>
 	                <strong>{{ member.name }}</strong> 
 	                {% if member.github %}(<a href="https://github.com/{{ member.github }}" target="_blank">@{{ member.github }}</a>){% endif %}
