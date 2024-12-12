@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.name }}</title>
+</head>
+<body>
+    <h1>{{ page.name }}</h1>
+    <p>{{ page.bio }}</p>
+    <ul>
+        {% for interest in page.interests %}
+        <li>{{ interest }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+

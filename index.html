@@ -1,4 +1,3 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,33 +8,50 @@
 <body>
     <header>
         <h1>Welcome to the Minorio Members Community</h1>
-        <p>Register to join our growing community by following the steps below!</p>
+        <p>Your first mission: make your first pull request and join the Minorio community!</p>
     </header>
     <main>
         <section id="instructions">
-            <h2>How to Join</h2>
+            <h2>How to Join Minorio</h2>
             <ol>
                 <li>Fork this repository: <a href="https://github.com/minorio-core/minorio-members">Minorio Members</a>.</li>
-                <li>Clone the forked repository to your local machine.</li>
+                <li>Clone your forked repository to your local machine:</li>
+                <pre>
+git clone https://github.com/your-username/minorio-members.git
+                </pre>
                 <li>Navigate to the <code>members</code> directory and create a new file named <code>your-github-username.md</code>.</li>
-                <li>Use the following template to fill out your information:
-                    <pre>
+                <li>Open the file and fill in your details using this template:</li>
+                <pre>
 ---
 name: Your Full Name
 github: YourGitHubUsername
-bio: A short bio about yourself
-interests: [list, of, interests]
+bio: Write a short bio about yourself (e.g., what you love or what you're learning!)
+interests: [list, of, your, interests]
 ---
-                    </pre>
-                </li>
-                <li>Commit your changes and push them to your forked repository.</li>
-                <li>Submit a pull request to the original repository.</li>
+                </pre>
+                <li>Save the file and commit your changes:</li>
+                <pre>
+git add members/your-github-username.md
+git commit -m "Add my profile to Minorio Members"
+                </pre>
+                <li>Push your changes back to your forked repository:</li>
+                <pre>
+git push origin main
+                </pre>
+                <li>Go to your forked repository on GitHub and create a pull request to the original repository.</li>
+                <li>Once your pull request is merged, you’ll officially be part of the Minorio community!</li>
             </ol>
         </section>
+
         <section id="members-list">
             <h2>Our Community Members</h2>
-            <p>Explore the profiles of our amazing contributors!</p>
-            <!-- Dynamically list members here in the future -->
+            <ul>
+                {% for member in site.pages %}
+                {% if member.path contains 'members/' %}
+                <li><a href="{{ member.url }}">{{ member.name }}</a></li>
+                {% endif %}
+                {% endfor %}
+            </ul>
         </section>
     </main>
     <footer>
