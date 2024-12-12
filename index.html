@@ -42,17 +42,15 @@ git push origin main
                 <li>Once your pull request is merged, you’ll officially be part of the Minorio community!</li>
             </ol>
         </section>
-
-        <section id="members-list">
-            <h2>Our Community Members</h2>
-            <ul>
-                {% for member in site.pages %}
-                {% if member.path contains 'members/' %}
-                <li><a href="{{ member.url }}">{{ member.name }}</a></li>
-                {% endif %}
-                {% endfor %}
-            </ul>
-        </section>
+	<section id="members-list">
+	    <h2>Our Community Members</h2>
+	    <ul>
+	        {% assign members = site.static_files | where_exp: "file", "file.path contains 'members/'" %}
+	        {% for member in members %}
+	            <li><a href="{{ member.path }}">{{ member.name }}</a></li>
+	        {% endfor %}
+	    </ul>
+	</section>
     </main>
     <footer>
         <p>&copy; 2024 Minorio Community</p>
