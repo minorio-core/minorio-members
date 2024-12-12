@@ -46,23 +46,34 @@ git push origin main
                 <li>Once your pull request is merged, you’ll officially be part of the Minorio community!</li>
             </ol>
         </section>
-
-    <section id="members-list">
-        <h2>Our Community Members</h2>
-        {% if site.members.size > 0 %}
-            <ul>
-            {% for member in site.members %}
-                <li>
-                    <strong>{{ member.name }}</strong>
-                    {% if member.bio %} - {{ member.bio }}{% endif %}
-                </li>
-            {% endfor %}
-            </ul>
-        {% else %}
-            <p>No members found. Be the first to join!</p>
-        {% endif %}
-    </section>
-
+	<section id="members-list">
+	    <h2>Our Community Members</h2>
+	    
+	    <!-- Debug information -->
+	    <div style="background: #f5f5f5; padding: 10px; margin: 10px 0;">
+	        <p>Debug Info:</p>
+	        <p>Number of members: {{ site.members.size }}</p>
+	        <p>Collection paths:</p>
+	        <ul>
+	        {% for member in site.members %}
+	            <li>{{ member.path }} - {{ member.name }}</li>
+	        {% endfor %}
+	        </ul>
+	    </div>
+	
+	    {% if site.members.size > 0 %}
+	        <ul>
+	        {% for member in site.members %}
+	            <li>
+	                <strong>{{ member.name }}</strong>
+	                {% if member.bio %} - {{ member.bio }}{% endif %}
+	            </li>
+	        {% endfor %}
+	        </ul>
+	    {% else %}
+	        <p>No members found. Be the first to join!</p>
+	    {% endif %}
+	</section>
     </main>
     <footer>
         <p>&copy; 2024 Minorio Community</p>
