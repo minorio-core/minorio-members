@@ -45,9 +45,8 @@ git push origin main
 	<section id="members-list">
 	    <h2>Our Community Members</h2>
 	    <ul>
-	        {% assign members = site.static_files | where_exp: "file", "file.path contains 'members/'" %}
-	        {% for member in members %}
-	            <li><a href="{{ member.path }}">{{ member.name }}</a></li>
+	        {% for member in site.members %}
+	            <li><a href="{{ member.url }}">{{ member.name }}</a></li>
 	        {% endfor %}
 	    </ul>
 	</section>
