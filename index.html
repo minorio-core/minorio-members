@@ -48,7 +48,7 @@ git push origin main
         </section>
 	<section id="members-list">
 	    <h2>Our Community Members</h2>
-	    {% assign real_members = site.members | where_exp:"item", "item.path contains 'template.md' != true" %}
+	    {% assign real_members = site.members | where_exp:"item", "item.path contains 'template.md' == false" %}
 	    
 	    <div class="community-stats">
 	        <p>Current community size: <strong>{{ real_members.size }}</strong> member{% if real_members.size != 1 %}s{% endif %}</p>
